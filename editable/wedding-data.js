@@ -1,11 +1,12 @@
 /**
  * wedding-data.js — Customer-facing editable data layer for noor-e-zahra
- * Edit this file to update couple names, parents, dates, venue, Islamic dua, and photos.
+ * Edit this file to update couple names, parents, dates, venue, Islamic dua, music, and photos.
  */
 
 window.WEDDING_DATA = {
   order: "groom-first",
   coupleDisplay: "Hiran & Mariom",
+  hidePhotos: true,
 
   couple: {
     groom: {
@@ -39,8 +40,9 @@ window.WEDDING_DATA = {
   },
 
   religious: {
-    duaArabic: "اللَّهُمَّ بَارِكْ لَهُمَا وَبَارِكْ عَلَيْكُمَا وَاجْمَعْ بَيْنَهُمَا فِي خَيْرٍ",
-    duaTranslit: "O Allah, bless them, and send Your blessings upon them, and unite them in goodness.",
+    eyebrow: "Bismillah",
+    duaArabic: "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+    duaTranslit: "In the name of Allah, the Most Gracious, the Most Merciful",
   },
 
   venue: {
@@ -49,7 +51,14 @@ window.WEDDING_DATA = {
     address: "\"Binapani\" Anusthan Bhaban, Near Yatrik Club, Birbhum Police Line, Suri, West Bengal 731101",
     plusCode: "WG2J+HQ6, Birbhum Police Line, Suri, West Bengal 731101",
     mapUrl: "https://www.google.com/maps/search/?api=1&query=WG2J%2BHQ6%2C+Birbhum+Police+Line%2C+Suri%2C+West+Bengal+731101",
+    mapEmbedUrl: "https://maps.google.com/maps?q=23.9014125,87.531890625+(Binapani+Anusthan+Bhaban)&t=&z=16&ie=UTF8&iwloc=B&output=embed",
     hosts: "Md. Samsuddin Mia & Sahila Bibi",
+  },
+
+  music: {
+    src: "./editable/assets/bgm.mp3",
+    title: "Wedding BGM",
+    youtubeUrl: "https://youtube.com/shorts/KVPFa8Z7dic?si=8RLheq5MHoPvbBTX",
   },
 
   images: {

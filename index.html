@@ -12,8 +12,128 @@
     <script src="./editable/wedding-data.js"></script>
     <script type="module" crossorigin src="./assets/index-DJiECBMo.js"></script>
     <link rel="stylesheet" crossorigin href="./assets/styles-oy5_5gfv.css">
+    <style>
+      @keyframes bgmWave {
+        0%, 100% { height: 4px; }
+        50% { height: 14px; }
+      }
+      .bgm-bar {
+        display: inline-block;
+        width: 3px;
+        background: #8c6d23;
+        border-radius: 2px;
+      }
+      .bgm-playing .bgm-bar:nth-child(1) { animation: bgmWave 0.8s ease-in-out infinite; }
+      .bgm-playing .bgm-bar:nth-child(2) { animation: bgmWave 0.6s ease-in-out infinite 0.2s; }
+      .bgm-playing .bgm-bar:nth-child(3) { animation: bgmWave 0.9s ease-in-out infinite 0.4s; }
+      .bgm-paused .bgm-bar { height: 4px !important; }
+      #bgm-btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 10px 28px rgba(184, 142, 47, 0.3);
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>
+
+    <!-- Background Music Controller -->
+    <div id="bgm-player" style="position:fixed;bottom:22px;right:18px;z-index:9999;display:flex;align-items:center;">
+      <button id="bgm-btn" type="button" aria-label="Toggle background music" style="
+        display:flex;
+        align-items:center;
+        gap:9px;
+        padding:9px 16px;
+        background:rgba(255,253,248,0.92);
+        border:1.5px solid #d4af37;
+        border-radius:9999px;
+        box-shadow:0 8px 24px rgba(0,0,0,0.12);
+        backdrop-filter:blur(8px);
+        -webkit-backdrop-filter:blur(8px);
+        cursor:pointer;
+        font-family:Karla,sans-serif;
+        font-size:11px;
+        font-weight:600;
+        letter-spacing:0.18em;
+        text-transform:uppercase;
+        color:#8c6d23;
+        transition:all 0.25s ease;
+      ">
+        <span id="bgm-icon" class="bgm-playing" style="display:inline-flex;align-items:flex-end;gap:2.5px;height:14px;width:14px;">
+          <span class="bgm-bar" style="height:12px;"></span>
+          <span class="bgm-bar" style="height:8px;"></span>
+          <span class="bgm-bar" style="height:10px;"></span>
+        </span>
+        <span id="bgm-label">Music On</span>
+      </button>
+      <audio id="bgm-audio" loop preload="auto" src="./editable/assets/bgm.mp3"></audio>
+    </div>
+
+    <script>
+      (function() {
+        const audio = document.getElementById('bgm-audio');
+        const btn = document.getElementById('bgm-btn');
+        const label = document.getElementById('bgm-label');
+        const icon = document.getElementById('bgm-icon');
+        if (!audio || !btn) return;
+
+        audio.volume = 0.65;
+
+        function setPlayingState(playing) {
+          if (playing) {
+            icon.className = 'bgm-playing';
+            icon.innerHTML = '<span class="bgm-bar" style="height:12px;"></span><span class="bgm-bar" style="height:8px;"></span><span class="bgm-bar" style="height:10px;"></span>';
+            label.textContent = 'Music On';
+            btn.setAttribute('aria-pressed', 'true');
+          } else {
+            icon.className = 'bgm-paused';
+            icon.innerHTML = '<svg style="width:12px;height:12px;fill:#8c6d23;" viewBox="0 0 24 24"><polygon points="6 3 20 12 6 21 6 3"/></svg>';
+            label.textContent = 'Play Music';
+            btn.setAttribute('aria-pressed', 'false');
+          }
+        }
+
+        function playMusic() {
+          const promise = audio.play();
+          if (promise !== undefined) {
+            promise.then(function() {
+              setPlayingState(true);
+            }).catch(function() {
+              setPlayingState(false);
+            });
+          }
+        }
+
+        function toggleMusic() {
+          if (audio.paused) {
+            playMusic();
+          } else {
+            audio.pause();
+            setPlayingState(false);
+          }
+        }
+
+        btn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          toggleMusic();
+        });
+
+        // Autoplay on first user interaction
+        function triggerFirstPlay() {
+          if (audio.paused) {
+            playMusic();
+          }
+          window.removeEventListener('click', triggerFirstPlay);
+          window.removeEventListener('touchstart', triggerFirstPlay);
+          window.removeEventListener('scroll', triggerFirstPlay);
+        }
+
+        window.addEventListener('click', triggerFirstPlay, { once: true });
+        window.addEventListener('touchstart', triggerFirstPlay, { once: true });
+        window.addEventListener('scroll', triggerFirstPlay, { once: true });
+
+        // Initial attempt (some browsers allow muted or unmuted depending on settings)
+        playMusic();
+      })();
+    </script>
   </body>
 </html>
