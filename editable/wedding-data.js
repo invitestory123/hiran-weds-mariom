@@ -67,7 +67,7 @@ window.WEDDING_DATA = {
     floralCorner: "./editable/assets/floral-corner.png",
     goldFlourish: "./editable/assets/gold-flourish.png",
     masjid: "./editable/assets/masjid.png",
-    mandala: "./editable/assets/mandala.png",
+    mandala: "",
     paperTexture: "./editable/assets/paper-texture.jpg",
     map: "./images/map.jpg",
   },
