@@ -70,5 +70,13 @@ window.WEDDING_DATA = {
     mandala: "",
     paperTexture: "./editable/assets/paper-texture.jpg",
     map: "./images/map.jpg",
+    ogImage: "./images/og-image.jpg",
+  },
+
+  meta: {
+    title: "Md. Hiran & Mariom Ferdousi — Wedding Reception Invitation",
+    description: "With the blessings of Allah and our families, Md. Samsuddin Mia & Sahila Bibi cordially invite you to celebrate the Wedding Reception of Md. Hiran & Mariom Ferdousi on Sunday, 17 January 2027 at \"Binapani\" Anusthan Bhaban, Suri, Birbhum.",
+    ogImage: "https://invitestory123.github.io/hiran-weds-mariom/images/og-image.jpg",
+    ogUrl: "https://invitestory123.github.io/hiran-weds-mariom/",
   },
 };
