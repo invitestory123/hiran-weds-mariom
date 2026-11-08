@@ -46,9 +46,9 @@ window.WEDDING_DATA = {
   },
 
   venue: {
-    name: "\"Binapani\" Anusthan Bhaban",
+    name: "Binapani Anusthan Bhaban",
     line2: "Near Yatrik Club, Police Line, Suri, Birbhum",
-    address: "\"Binapani\" Anusthan Bhaban, Near Yatrik Club, Birbhum Police Line, Suri, West Bengal 731101",
+    address: "Binapani Anusthan Bhaban, Near Yatrik Club, Birbhum Police Line, Suri, West Bengal 731101",
     plusCode: "WG2J+HQ6, Birbhum Police Line, Suri, West Bengal 731101",
     mapUrl: "https://www.google.com/maps/search/?api=1&query=WG2J%2BHQ6%2C+Birbhum+Police+Line%2C+Suri%2C+West+Bengal+731101",
     mapEmbedUrl: "https://maps.google.com/maps?q=23.9014125,87.531890625+(Binapani+Anusthan+Bhaban)&t=&z=16&ie=UTF8&iwloc=B&output=embed",
@@ -75,7 +75,7 @@ window.WEDDING_DATA = {
 
   meta: {
     title: "Md. Hiran & Mariom Ferdousi — Wedding Reception Invitation",
-    description: "With the blessings of Allah and our families, Md. Samsuddin Mia & Sahila Bibi cordially invite you to celebrate the Wedding Reception of Md. Hiran & Mariom Ferdousi on Sunday, 17 January 2027 at \"Binapani\" Anusthan Bhaban, Suri, Birbhum.",
+    description: "With the blessings of Allah and our families, Md. Samsuddin Mia & Sahila Bibi cordially invite you to celebrate the Wedding Reception of Md. Hiran & Mariom Ferdousi on Sunday, 17 January 2027 at Binapani Anusthan Bhaban, Suri, Birbhum.",
     ogImage: "https://invitestory123.github.io/hiran-weds-mariom/images/og-image.jpg",
     ogUrl: "https://invitestory123.github.io/hiran-weds-mariom/",
   },
